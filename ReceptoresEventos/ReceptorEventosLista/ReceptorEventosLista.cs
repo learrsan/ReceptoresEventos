@@ -20,7 +20,7 @@ namespace ReceptoresEventos.ReceptorEventosLista
             ActualizacionPropiedades(properties.Web,precio);
         }
 
-        public override void itemUpdating(SPItemEventProperties properties)
+        public override void ItemUpdating(SPItemEventProperties properties)
         {
             var precioAnterior = (double) properties.ListItem["Precio"];
             var precio = Convert.ToDouble(properties.AfterProperties["Precio"]);
@@ -28,7 +28,7 @@ namespace ReceptoresEventos.ReceptorEventosLista
             ActualizacionPropiedades(properties.Web, total); 
         }
         
-        public override void itemDeleting(SPItemEventProperties properties)
+        public override void ItemDeleting(SPItemEventProperties properties)
         {
             var precio = Convert.ToDouble(properties.AfterProperties["Precio"]);
             ActualizacionPropiedades(properties.Web, -precio);
@@ -40,19 +40,19 @@ namespace ReceptoresEventos.ReceptorEventosLista
 
             double actual = 0;
 
-            if (web.Properties[clave] != null)
+            if (web.AllProperties[clave] != null)
             {
-                actual = Convert.ToDouble(web.Properties[clave]);
+                actual = Convert.ToDouble(web.AllProperties[clave]);
             }
             else
             {
-                web.Properties.Add(clave,"");
+                web.AllProperties.Add(clave,"");
             }
             
             actual += precio;
 
-            web.Properties[clave] = actual.ToString();
-            web.Properties.Update();
+            web.AllProperties[clave] = actual.ToString();
+            
         }
     }
 }
