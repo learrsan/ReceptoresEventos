@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package dslVersion="1.0.0.0" 
+        Id="6164be77-b430-4a8f-96f9-302e542a7154" 
+        solutionId="6164be77-b430-4a8f-96f9-302e542a7154" 
+        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
+        name="ReceptoresEventos"
+        sharePointProductVersion="15.0">
+</package>
