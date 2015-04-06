@@ -16,21 +16,21 @@ namespace ReceptoresEventos.ReceptorEventosLista
         /// </summary>
         public override void ItemAdding(SPItemEventProperties properties)
         {
-            var precio = Convert.ToDouble(properties.AfterProperties["Precio"]);
+            var precio = Convert.ToDouble(properties.AfterProperties["j9l5"]);
             ActualizacionPropiedades(properties.Web,precio);
         }
 
         public override void ItemUpdating(SPItemEventProperties properties)
         {
-            var precioAnterior = (double) properties.ListItem["Precio"];
-            var precio = Convert.ToDouble(properties.AfterProperties["Precio"]);
+            var precioAnterior = (double) properties.ListItem["j9l5"];
+            var precio = Convert.ToDouble(properties.AfterProperties["j9l5"]);
             var total = precio - precioAnterior;
             ActualizacionPropiedades(properties.Web, total); 
         }
         
         public override void ItemDeleting(SPItemEventProperties properties)
         {
-            var precio = Convert.ToDouble(properties.AfterProperties["Precio"]);
+            var precio = Convert.ToDouble(properties.ListItem["j9l5"]);
             ActualizacionPropiedades(properties.Web, -precio);
         }
 
